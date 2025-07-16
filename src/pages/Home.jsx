@@ -1,16 +1,25 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import React, { useContext } from "react";
+import { Context } from "../store.jsx";
+import { ContactCard } from "../components/ContactCard";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+  const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
+console.log(store);
 
-  const {store, dispatch} =useGlobalReducer()
-
-	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-		</div>
-	);
-}; 
+  return (
+    <div className="d-flex flex-column gap-3 align-items-center justify-content-center"> 
+      <button type="button" class="btn btn-success" onClick={() => navigate("/add")}>Add new contact</button>
+      {Array.isArray(store.contacts) &&
+        store.contacts.map(contact => (
+          <ContactCard
+            key={contact.id}
+            contact={contact}
+            onEdit={() => navigate(`/edit/${contact.id}`)}
+            onDelete={() => actions.deleteContact(contact.id)}
+          />
+        ))}
+    </div>
+  );
+};

@@ -1,0 +1,64 @@
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.08), 0 1.5px 6px rgba(60,60,60,0.06);
+  align-items: center;
+  transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+.contact-card:hover {
+  box-shadow: 0 8px 24px rgba(60,60,60,0.16), 0 3px 12px rgba(60,60,60,0.10);
+  transform: translateY(-4px) scale(1.03);
+}
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(60,60,60,0.10);
+  border: 3px solid #e0e0e0;
+}
+.contact-card h3 {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.contact-card p {
+  margin: 0.2rem 0;
+  color: #555;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.contact-card .btn {
+  transition: transform 0.15s cubic-bezier(.4,0,.2,1), box-shadow 0.15s;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.contact-card .btn:active,
+.contact-card .btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #1976d2;
+}
+.contact-card .btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
+}
+.contact-card .form-control {
+  border-radius: 8px;
+  border: 1.5px solid #e0e0e0;
+  padding: 0.75rem 1rem;
+  font-size: 1.05rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 0.5rem;
+  background: #fafafa;
+}
+.contact-card .form-control:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px #1976d230;
+  background: #fff;
+}
